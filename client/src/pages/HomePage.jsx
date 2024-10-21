@@ -5,16 +5,17 @@ import WebApp from '@twa-dev/sdk'
 function HomePage() {
 
   const [userData,setUserData] = useState('')
+  const {themeParams} = WebApp
 
   useEffect(()=>{
-    if(WebApp.initData){
+    if(WebApp.initDataUnsafe){
       setUserData(WebApp.initData)
     }
   },[])
 
   console.log(userData)
   return (
-    <div>
+    <div className={`bg-${themeParams.bg_color}`}>
      {userData}
     </div>
   )
